@@ -17,7 +17,7 @@ const RightSide = React.memo(({selectContent}) => {
             case 'faq':
                 return <Faq/>
             default:
-                return null
+                return <BlockChain/>
         }
     }
 

@@ -1,7 +1,7 @@
 import user from './user.svg';
 import wall from './wallet.svg'
 import './App.css';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import LeftSide from './component/leftSide';
 import BlockChain from './component/rightContent/blockChain';
 import Token from './component/rightContent/token';
@@ -11,11 +11,18 @@ import RightSide from './component/rightSide';
 
 function App() {
   const menuItems = ['blockchain', 'token', 'creatorToken', 'faq']; // Add more menu items as needed
-  const [selectedItem, setSelectedItem] = useState('');
+  const [selectedItem, setSelectedItem] = useState('blockchain');
 
   const handleMenuSelect = (item) => {
     setSelectedItem(item);
   };
+
+  // useEffect(() => {
+  //   window.addEventListener('scroll',()=>{
+  //     let scr = window.scrollY
+  //     console.log(scr)
+  //   })
+  // },[])
 
   return (
     <div className="App">

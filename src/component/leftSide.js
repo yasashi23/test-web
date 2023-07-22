@@ -8,40 +8,40 @@ export default function LeftSide({menuItems, onSelect}) {
   const [creatorTokenIsOpen, setCreatorTokenOpen] = useState(false)
   const [faqIsOpen, setFaqOpen] = useState(false)
 
-  const [menuSelect,setMenuSelect] = useState('')
+  const [menuSelect,setMenuSelect] = useState('blockchain')
 
   const toggleMenuBlockChain = (item) => {
-    setBlockChainOpen(!blockChainIsOpen);
-    setMenuSelect(item)
-    onSelect(item)
+      setMenuSelect(item)
+      onSelect(item)
+      setBlockChainOpen(!blockChainIsOpen);
   };
     const toggleMenuToken = (item) => {
-    setTokenOpen(!tokenIsOpen);
         setMenuSelect(item)
-    onSelect(item)
+        onSelect(item)
+        setTokenOpen(!tokenIsOpen);
   };
 
   const toggleMenuCreatorToken = (item) => {
-    setCreatorTokenOpen(!creatorTokenIsOpen);
-        setMenuSelect(item)
-    onSelect(item)
+      setMenuSelect(item)
+      onSelect(item)
+      setCreatorTokenOpen(!creatorTokenIsOpen);
   };
 
   const toggleMenuFaq = (item) => {
-    setFaqOpen(!faqIsOpen);
-        setMenuSelect(item)
-    onSelect(item)
+      setMenuSelect(item)
+      onSelect(item)
+      setFaqOpen(!faqIsOpen);
   };
   return (
     <div>
          <div className="menu-container">
-      <div className="menu" onClick={()=> toggleMenuBlockChain(menuItems[0])}>
+      <div className={menuSelect === menuItems[0]? 'menu  active': 'menu'} onClick={()=> toggleMenuBlockChain(menuItems[0])}>
         <div className='blockChain'>
-          <img src={arr} className={blockChainIsOpen ? 'blockIcon open' : 'blockIcon'} alt="" />
+          <img src={arr} className={menuSelect === menuItems[0] && blockChainIsOpen ? 'blockIcon open' : 'blockIcon'} alt="" />
         </div>
         <p>Blockchain</p>
       </div>
-      <ul className={blockChainIsOpen ? 'menu-items blockChainMenu open' : 'menu-items blockChainMenu'}>
+      <ul className={menuSelect === menuItems[0] &&blockChainIsOpen ? 'menu-items blockChainMenu open' : 'menu-items blockChainMenu'}>
         <li><a href="#blockchain1">What is blockchain technology?</a></li>
         <li><a href="#blockchain2">How is blockchain different from traditional databases?</a></li>
         <li><a href="#blockchain3">What are the key components of a blockchain network?</a></li>
@@ -54,32 +54,29 @@ export default function LeftSide({menuItems, onSelect}) {
     </div>
 
      <div className="menu-container">
-      <div className="menu" onClick={()=> toggleMenuToken(menuItems[1])}>
+      <div className={menuSelect === menuItems[1]? 'menu  active': 'menu'} onClick={()=> toggleMenuToken(menuItems[1])}>
         <div className='blockChain'>
-          <img src={arr} className={tokenIsOpen ? 'tokenIcon open' : 'tokenIcon'} alt="" />
+          <img src={arr} className={menuSelect === menuItems[1] && tokenIsOpen ? 'tokenIcon open' : 'tokenIcon'} alt="" />
         </div>
         <p>Tokens</p>
       </div>
-      <ul className={tokenIsOpen ? 'menu-items tokenMenu open' : 'menu-items tokenMenu'}>
-        <li><a href="#blockchain1">What is blockchain technology?</a></li>
-        <li><a href="#blockchain2">How is blockchain different from traditional databases?</a></li>
-        <li><a href="#blockchain3">What are the key components of a blockchain network?</a></li>
-        <li><a href="#blockchain4">How are transactions verified and added to the blockchain?</a></li>
-        <li><a href="#blockchain4">Security of blockchain transactions</a></li>
-        <li><a href="#blockchain4">What are the types of blockchains:?</a></li>
-        <li><a href="#blockchain4">Smart Contracts & Functionalities</a></li>
+      <ul className={menuSelect === menuItems[1] &&tokenIsOpen ? 'menu-items tokenMenu open' : 'menu-items tokenMenu'}>
+        <li><a href="#blockchain1">What are tokens in the blockchain ecosystem?</a></li>
+        <li><a href="#blockchain2">How do tokens differ from cryptocurrencies like Bitcoin and Ethereum?</a></li>
+        <li><a href="#blockchain3">What role does the ERC-20 standard play in token development on Ethereum?</a></li>
+        <li><a href="#blockchain4">How are tokens stored and managed in blockchain wallets?</a></li>
         {/* Add more menu items here */}
       </ul>
     </div>
 
      <div className="menu-container">
-      <div className="menu" onClick={()=> toggleMenuCreatorToken(menuItems[2])}>
+      <div className={menuSelect === menuItems[2]? 'menu  active': 'menu'} onClick={()=> toggleMenuCreatorToken(menuItems[2])}>
         <div className='blockChain'>
-          <img src={arr} className={creatorTokenIsOpen ? 'creatorTokenIcon open' : 'creatorTokenIcon'} alt="" />
+          <img src={arr} className={menuSelect === menuItems[2]&&creatorTokenIsOpen ? 'creatorTokenIcon open' : 'creatorTokenIcon'} alt="" />
         </div>
         <p>Creator Tokens</p>
       </div>
-      <ul className={creatorTokenIsOpen ? 'menu-items creatorTokenMenu open' : 'menu-items creatorTokenMenu'}>
+      <ul className={menuSelect === menuItems[2] && creatorTokenIsOpen ? 'menu-items creatorTokenMenu open' : 'menu-items creatorTokenMenu'}>
         <li><a href="#blockchain1">What is blockchain technology?</a></li>
         <li><a href="#blockchain2">How is blockchain different from traditional databases?</a></li>
         <li><a href="#blockchain3">What are the key components of a blockchain network?</a></li>
@@ -92,13 +89,13 @@ export default function LeftSide({menuItems, onSelect}) {
     </div>
 
          <div className="menu-container">
-      <div className="menu" onClick={()=> toggleMenuFaq(menuItems[3])}>
+      <div className={menuSelect === menuItems[3]? 'menu  active': 'menu'} onClick={()=> toggleMenuFaq(menuItems[3])}>
         <div className='blockChain'>
-          <img src={arr} className={faqIsOpen ? 'faqIcon open' : 'faqIcon'} alt="" />
+          <img src={arr} className={menuSelect === menuItems[3]&&faqIsOpen ? 'faqIcon open' : 'faqIcon'} alt="" />
         </div>
         <p>FAQs</p>
       </div>
-      <ul className={faqIsOpen ? 'menu-items faqMenu open' : 'menu-items faqMenu'}>
+      <ul className={menuSelect === menuItems[3]&&faqIsOpen ? 'menu-items faqMenu open' : 'menu-items faqMenu'}>
         <li><a href="#blockchain1">What is blockchain technology?</a></li>
         <li><a href="#blockchain2">How is blockchain different from traditional databases?</a></li>
         <li><a href="#blockchain3">What are the key components of a blockchain network?</a></li>

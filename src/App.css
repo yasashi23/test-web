@@ -21,6 +21,7 @@ a{
 
 .nav-bar {
   background-color: #aeaeae;
+  z-index: 999;
 }
 .nav-bar nav {
   width: 100%;
@@ -96,11 +97,13 @@ a{
 .content {
   display: flex;
   height: 100%;
+  padding: 0px 120px 0px 80px;
 }
 
 .left-section {
   flex: 1;
   padding: 20px;
+  height: 1190px;
   /* background-color: #f0f0f0; */
 }
 
@@ -109,17 +112,19 @@ a{
   padding: 20px;
   /* background-color: #ffffff; */
 }
+.rightSide{
+  width: 560px;
+}
 
 .menu-container {
   font-family: Arial, sans-serif;
 }
 
 .menu {
-  background: #0081DE30;
   color: #2D405A;
   padding: 10px;
   cursor: pointer;
-  width: 130px;
+  width: 155px;
   height: 20px;
   align-items: center;
   border-radius: 10px;
@@ -127,6 +132,10 @@ a{
   flex-direction: row;
 
 }
+.menu.active {
+    background: #0081DE30;
+}
+
 
 .left-section .menu-container .menu .blockIcon img {
   width: 20px;
@@ -163,18 +172,21 @@ a{
 .menu-items.creatorTokenMenu,
  .menu-items.faqMenu{
   list-style-type: none;
-  padding: 0;
+  padding-left: 25px;
   height: 0;
   overflow: hidden;
   transition: 0.5s;
+  width: 350px;
 }
 
 .menu-items.tokenMenu.open,
 .menu-items.blockChainMenu.open,
 .menu-items.creatorTokenMenu.open,
  .menu-items.faqMenu.open{
-  height: 220px;
+  height: 250px;
   transition: 0.5s;
+  padding-left: 25px;
+  width: 350px;
 }
 
 .menu-items li {
@@ -186,4 +198,28 @@ a{
 
 .menu-items li:last-child {
   border-bottom: none;
+}
+
+/* content style */
+.right-section {
+  width: 560px;
+}
+.right-section p,
+.right-section h3,
+.right-section li {
+  font-size: 13px;
+  color: #2D405A;
+}
+.right-section ul {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+.right-section p {
+  font-weight: 300;
+  line-height: 20px;
+}
+.right-section h2 {
+  font-size: 20px;
+  color: #2D405A;
 }
