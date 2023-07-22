@@ -215,7 +215,8 @@ a{
   flex-direction: column;
   gap: 13px;
 }
-.right-section p {
+.right-section p,
+.right-section li {
   font-weight: 300;
   line-height: 20px;
 }
