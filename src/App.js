@@ -1,21 +1,26 @@
 import user from './user.svg';
 import wall from './wallet.svg'
-import arr from './chevron-right.svg'
 import './App.css';
 import React, { useState } from 'react';
+import LeftSide from './component/leftSide';
+import BlockChain from './component/rightContent/blockChain';
+import Token from './component/rightContent/token';
+import CreatorToken from './component/rightContent/creatorToken';
+import Faq from './component/rightContent/faq';
+import RightSide from './component/rightSide';
 
 function App() {
-  const [isOpen, setIsOpen] = useState(false);
+  const menuItems = ['blockchain', 'token', 'creatorToken', 'faq']; // Add more menu items as needed
+  const [selectedItem, setSelectedItem] = useState('');
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
+  const handleMenuSelect = (item) => {
+    setSelectedItem(item);
   };
+
   return (
     <div className="App">
       {/* nav bar */}
        <div className="nav-bar">
-        {/* <h2>Navigation Bar</h2> */}
-        {/* Add your navigation links here */}
         <nav>
         <div className="logo">
         {/* Your logo content goes here */}
@@ -55,34 +60,15 @@ function App() {
       <div className="content">      
        {/* Left Section (Dropdown) */}
       <div className="left-section">
- <div className="menu-container">
-      <div className="menu" onClick={toggleMenu}>
-        <div className='blockChain'>
-          <img src={arr} className={isOpen ? 'blockIcon open' : 'blockIcon'} alt="" />
-        </div>
-        <p>Blockchain</p>
+        <LeftSide menuItems={menuItems} onSelect={handleMenuSelect}/>
+
       </div>
-      <ul className={isOpen ? 'menu-items open' : 'menu-items'}>
-        <li>What is blockchain technology?</li>
-        <li>How is blockchain different from traditional databases?</li>
-        <li>What are the key components of a blockchain network?</li>
-        <li>How are transactions verified and added to the blockchain?</li>
-        <li>Security of blockchain transactions</li>
-        <li>What are the types of blockchains:?</li>
-        <li>Smart Contracts & Functionalities</li>
-        {/* Add more menu items here */}
-      </ul>
-    </div>
-      </div>
+
+
 
       {/* Right Section (Content) */}
       <div className="right-section">
-        <h2>Content Section</h2>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in magna
-          eleifend, euismod arcu vel, iaculis felis. Duis aliquam arcu vel leo
-          eleifend, vel interdum urna facilisis.
-        </p>
+        <RightSide selectContent={selectedItem}/>
       </div>
       </div>
     </div>

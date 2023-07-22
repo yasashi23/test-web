@@ -1,3 +1,7 @@
+a{
+  text-decoration: none;
+  color: black;
+}
 .nav-bar {
   position: fixed;
   width: 100%;
@@ -15,6 +19,9 @@
   background-color: #aeaeae;
 }
 
+.nav-bar {
+  background-color: #aeaeae;
+}
 .nav-bar nav {
   width: 100%;
   display: flex;
@@ -135,17 +142,26 @@
   font-size: 16px;
 }
 
-.left-section .menu-container .menu .blockIcon {
+.left-section .menu-container .menu .blockIcon,
+.left-section .menu-container .menu .tokenIcon,
+.left-section .menu-container .menu .creatorTokenIcon,
+.left-section .menu-container .menu .faqIcon{
   rotate: 0deg;
   width: 20px;
   transition: 0.5s;
 }
 
-.left-section .menu-container .menu .blockIcon.open {
+.left-section .menu-container .menu .blockIcon.open,
+.left-section .menu-container .menu .tokenIcon.open,
+.left-section .menu-container .menu .creatorTokenIcon.open,
+.left-section .menu-container .menu .faqIcon.open{
   rotate: 90deg;
 }
 
-.menu-items {
+.menu-items.blockChainMenu,
+.menu-items.tokenMenu,
+.menu-items.creatorTokenMenu,
+ .menu-items.faqMenu{
   list-style-type: none;
   padding: 0;
   height: 0;
@@ -153,14 +169,17 @@
   transition: 0.5s;
 }
 
-.menu-items.open {
-  height: 305px;
+.menu-items.tokenMenu.open,
+.menu-items.blockChainMenu.open,
+.menu-items.creatorTokenMenu.open,
+ .menu-items.faqMenu.open{
+  height: 220px;
   transition: 0.5s;
 }
 
 .menu-items li {
   padding: 8px;
-  font-size: 10px;
+  font-size: 13px;
   cursor: pointer;
   /* border-bottom: 1px solid #ccc; */
 }
